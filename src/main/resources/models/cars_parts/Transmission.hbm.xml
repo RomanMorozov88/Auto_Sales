@@ -1,0 +1,6 @@
+<hibernate-mapping>
+    <class name="models.cars_parts.Transmission" table="transmission" lazy="false">
+        <id name="partName" column="name_transmission">
+        </id>
+    </class>
+</hibernate-mapping>

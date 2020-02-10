@@ -1,0 +1,16 @@
+<hibernate-mapping>
+    <class name="models.Car" table="car">
+        <id name="carId" column="car_id">
+            <generator class="identity"/>
+        </id>
+        <many-to-one name="engine"
+                     column="engine"
+                     class="models.cars_parts.Engine"/>
+        <many-to-one name="carBody"
+                     column="carbody"
+                     class="models.cars_parts.CarBody"/>
+        <many-to-one name="transmission"
+                     column="transmission"
+                     class="models.cars_parts.Transmission"/>
+    </class>
+</hibernate-mapping>

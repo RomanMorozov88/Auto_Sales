@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<web-app>
+    <!--===============================================================================================-->
+    <filter>
+        <filter-name>AuthFilterFirst</filter-name>
+        <filter-class>presentation.filters.AuthFilterFirst</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilterFirst</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--===============================================================================================-->
+    <filter>
+        <filter-name>AuthFilterSecond</filter-name>
+        <filter-class>presentation.filters.AuthFilterSecond</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilterSecond</filter-name>
+        <url-pattern>/newAd.html</url-pattern>
+    </filter-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>AdsServlet</servlet-name>
+        <servlet-class>presentation.servlets.AdsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdsServlet</servlet-name>
+        <url-pattern>/getads</url-pattern>
+        <load-on-startup>1</load-on-startup>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>GetMainUserServlet</servlet-name>
+        <servlet-class>presentation.servlets.GetMainUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetMainUserServlet</servlet-name>
+        <url-pattern>/gInfo</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>SignInServlet</servlet-name>
+        <servlet-class>presentation.servlets.SignInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignInServlet</servlet-name>
+        <url-pattern>/sIn</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>presentation.servlets.SignUpServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/sUp</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>ExitServlet</servlet-name>
+        <servlet-class>presentation.servlets.ExitServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ExitServlet</servlet-name>
+        <url-pattern>/exit</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>CarPartsServlet</servlet-name>
+        <servlet-class>presentation.servlets.CarPartsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CarPartsServlet</servlet-name>
+        <url-pattern>/getParts</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>CreateAdServlet</servlet-name>
+        <servlet-class>presentation.servlets.CreateAdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateAdServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <!--===============================================================================================-->
+    <servlet>
+        <servlet-name>StatusAdServlet</servlet-name>
+        <servlet-class>presentation.servlets.StatusAdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StatusAdServlet</servlet-name>
+        <url-pattern>/status</url-pattern>
+    </servlet-mapping>
+
+</web-app>

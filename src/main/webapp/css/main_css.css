@@ -1,0 +1,145 @@
+/*Настройки для страницы входа*/
+.formDiv {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.inUpForm {
+    padding-top: 10px;
+}
+
+.formInput {
+    width: 300px;
+    margin: 2px 2px 2px 2px;
+}
+
+/*Настройки выбора файла*/
+
+.photo_file input[type="file"] {
+    /* скрывает input file */
+    display: none;
+}
+
+.photo_file {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 40px;
+    background: lightblue;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.photo_file label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.photo_file span {
+    line-height: 40px;
+    font-weight: bold;
+}
+
+/*Настройки index`а*/
+
+.upperMenu {
+    background-color: lightblue;
+    position: relative;
+    padding: 10px;
+    height: 10vh;
+}
+
+.inner_btn_box {
+    width: 50%;
+    float: right;
+}
+
+.choice_btn_box {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+.inner_filter_box {
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+}
+.filterSelect {
+    width: 10%;
+    margin: 2px 2px 2px 2px;
+}
+.filterSelectPeriod {
+    width: 20%;
+    margin: 2px 2px 2px 2px;
+}
+
+.right_btns, .left_btns {
+    outline: none;
+    text-decoration: none;
+    line-height: 2vh;
+    padding: 1px 1vw;
+    border: 1px solid lightskyblue;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+.right_btns {
+    float: right;
+}
+
+.left_btns {
+    float: left;
+}
+
+.ad_parent {
+    min-height: 69vh;
+}
+
+.ad_table {
+    box-shadow: inset 0 0 0 5px lightblue;
+    float: left;
+    width: 40%;
+    padding: 5%;
+    min-height: 69vh;
+}
+
+.ad_selected {
+    box-shadow: inset 0 0 0 5px lightblue;
+    float: right;
+    width: 40%;
+    padding: 5%;
+    min-height: 69vh;
+}
+
+
+/*Настройки таблицы.*/
+table, th, td {
+    border: 1px solid lightblue;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+
+tr:hover {
+    background-color: lightyellow;
+}
+
+th {
+    background-color: lightblue;
+    padding-left: 5px;
+}
+
+td {
+    width: 25%;
+    height: 100px;
+    padding-left: 5px;
+
+}

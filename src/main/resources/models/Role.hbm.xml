@@ -1,0 +1,7 @@
+<hibernate-mapping>
+    <class name="models.Role" table="roles">
+        <id name="name" column="name_role"></id>
+            <property name="mainPermission" column="main_per"/>
+            <property name="adminPermission" column="admin_per"/>
+    </class>
+</hibernate-mapping>

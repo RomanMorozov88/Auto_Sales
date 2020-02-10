@@ -1,0 +1,20 @@
+<hibernate-mapping>
+    <class name="models.Advertisement" table="advertisement">
+        <id name="adId" column="ad_id">
+            <generator class="identity"/>
+        </id>
+        <property name="adShortName" column="ad_shortname"/>
+        <property name="adDescription" column="ad_description"/>
+        <property name="adPhoto" column="ad_photo"/>
+        <property name="adTime" column="ad_time"/>
+        <property name="adStatus" column="ad_status"/>
+        <many-to-one name="adCreator"
+                     column="id_creator"
+                     class="models.Owner"/>
+        <many-to-one name="adCar"
+                     column="id_car"
+                     class="models.Car"
+                     lazy="false"
+                     cascade="save-update"/>
+    </class>
+</hibernate-mapping>
