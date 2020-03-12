@@ -29,9 +29,7 @@ public class SignInServlet extends HttpServlet {
         Owner check = this.store.sessionFunc(store.getOwnerDAO().getPart(login));
         if (check != null && check.getPassword() == password) {
             HttpSession session = req.getSession();
-            synchronized (session) {
-                session.setAttribute("mainUser", check);
-            }
+            session.setAttribute("mainUser", check);
             resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
         } else {
             doGet(req, resp);

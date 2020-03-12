@@ -183,3 +183,52 @@ function exitFunction() {
         }
     })
 }
+
+//Заполняет варианты для select`ов фильтров.
+function loadMainParts() {
+    $.ajax({
+        url: './getParts',
+        method: 'get',
+        complete: function (data) {
+            var parts = JSON.parse(data.responseText);
+            setKeySelect(parts, "outer_select");
+            loadInnerOptions(parts);
+        }
+    })
+}
+
+//Устанавливаем в основной пункт фильтра заглавные параметры.
+function setKeySelect(list, elementId) {
+    var keyResult;
+    var result = "<option value='empty'>ничего не выбрано</option>";
+    var keyList = Object.keys(list);
+    result += "<option value='period'>время создания</option>";
+    for (var i = 0; i < keyList.length; i++) {
+        keyResult = keyList[i];
+        result += "<option value='" + keyResult + "'>" + keyResult + "</option>";
+    }
+    var bufferSelect = document.getElementById(elementId);
+    bufferSelect.innerHTML = result;
+}
+
+//Получаем варианты для выбранного пунка фильтрации.
+function loadInnerOptions(list) {
+    $('#outer_select').change(function () {
+        var key = $(this).val();
+        var result = '';
+        if (key == 'period') {
+            result = "<option value='-1'>ничего не выбрано</option>";
+            result += "<option value='1'>за последний день</option>";
+            result += "<option value='7'>за последнюю неделю</option>";
+            var bufferSelect = document.getElementById("inner_select");
+            bufferSelect.innerHTML = result;
+        } else if (key == 'empty') {
+            result = "<option value='empty'>ничего не выбрано</option>";
+            var bufferSelect = document.getElementById("inner_select");
+            bufferSelect.innerHTML = result;
+        } else {
+            var resultList = list[key];
+            setSelect(resultList, "inner_select");
+        }
+    });
+}

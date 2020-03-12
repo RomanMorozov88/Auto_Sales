@@ -3,7 +3,6 @@ package presentation.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import models.Advertisement;
-import models.Car;
 import models.Owner;
 import services.CarGetter;
 import services.StoreDB;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,38 +29,25 @@ public class AdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json");
         boolean flag = Boolean.parseBoolean(req.getParameter("flag"));
-        //Получаем Car для фильтрации.
-        String engineName = req.getParameter("eng");
-        String carbodyName = req.getParameter("body");
-        String transmissionName = req.getParameter("trns");
-        Integer period = Integer.parseInt(req.getParameter("period"));
-
-        Car filterCar = carGetter.fillTheCar(engineName, carbodyName, transmissionName);
+        //Получаем информацию для фильтрации.
+        String generalName = req.getParameter("general_otions");
+        String apartName = req.getParameter("apart_otions");
 
         List<Advertisement> result = null;
-        List<Advertisement> buffer = null;
 
-        Owner mainUser;
-        HttpSession session = req.getSession();
-        synchronized (session) {
+        Owner mainUser = null;
+        if (flag) {
+            HttpSession session = req.getSession();
             mainUser = (Owner) session.getAttribute("mainUser");
         }
-
         if (flag && mainUser != null) {
-            buffer = new ArrayList<>(mainUser.getAdvertisements());
+            result = store.sessionFunc(store.getAdvertisementDAO().getParts(generalName, apartName, mainUser));
         } else {
-            buffer = store.sessionFunc(store.getAdvertisementDAO().getParts());
-        }
-
-        if (filterCar != null) {
-            result = new ArrayList<>();
-            for (Advertisement ad : buffer) {
-                if (filterCar.carsAccord(ad.getAdCar())) {
-                    result.add(ad);
-                }
+            if (generalName != null && apartName != null) {
+                result = store.sessionFunc(store.getAdvertisementDAO().getParts(generalName, apartName, mainUser));
+            } else {
+                result = store.sessionFunc(store.getAdvertisementDAO().getParts());
             }
-        } else {
-            result = buffer;
         }
 
         PrintWriter writer = new PrintWriter(resp.getOutputStream());

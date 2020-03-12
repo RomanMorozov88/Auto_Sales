@@ -7,9 +7,9 @@ function loadParts() {
         method: 'get',
         complete: function (data) {
             var parts = JSON.parse(data.responseText);
-            setSelect(parts.engines, "engine_select");
-            setSelect(parts.carBodies, "carbody_select");
-            setSelect(parts.transmissions, "transmission_select");
+            setSelect(parts.engine, "engine_select");
+            setSelect(parts.carbody, "carbody_select");
+            setSelect(parts.transmission, "transmission_select");
         }
     })
 }

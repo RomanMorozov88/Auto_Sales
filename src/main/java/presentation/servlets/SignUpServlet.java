@@ -44,9 +44,7 @@ public class SignUpServlet extends HttpServlet {
         this.store.sessionFunc(store.getOwnerDAO().add(newUser));
 
         HttpSession session = req.getSession();
-        synchronized (session) {
-            session.setAttribute("mainUser", newUser);
-        }
+        session.setAttribute("mainUser", newUser);
         resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
     }
 

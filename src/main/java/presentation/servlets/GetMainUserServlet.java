@@ -24,9 +24,7 @@ public class GetMainUserServlet extends HttpServlet {
         resp.setContentType("application/json");
         Owner result = null;
         HttpSession session = req.getSession();
-        synchronized (session) {
-            result = (Owner) session.getAttribute("mainUser");
-        }
+        result = (Owner) session.getAttribute("mainUser");
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new Hibernate5Module());

@@ -90,18 +90,12 @@ public class CreateAdServlet extends HttpServlet {
             }
 
             Car car = carGetter.fillTheCar(engineName, carbodyName, transmissionName);
-            Car bufferCar = carGetter.getCarFromDB(car);
-            if (bufferCar != null) {
-                car = bufferCar;
-            }
 
             Advertisement advertisement = new Advertisement();
             advertisement.setAdCar(car);
             Owner mainUser = null;
             HttpSession session = req.getSession();
-            synchronized (session) {
-                mainUser = (Owner) session.getAttribute("mainUser");
-            }
+            mainUser = (Owner) session.getAttribute("mainUser");
             advertisement.setAdCreator(mainUser);
             advertisement.setAdShortName(shortDesc);
             advertisement.setAdDescription(fullDesc);

@@ -37,9 +37,9 @@ public class CarPartsServlet extends HttpServlet {
         List<Transmission> transmissions = store.sessionFunc(store.getTransmissionDAO().getParts());
 
         Map<String, List<GeneralPart>> result = new HashMap<>();
-        result.put("engines", this.convertList(engines));
-        result.put("carBodies", this.convertList(carBodies));
-        result.put("transmissions", this.convertList(transmissions));
+        result.put("engine", this.convertList(engines));
+        result.put("carbody", this.convertList(carBodies));
+        result.put("transmission", this.convertList(transmissions));
 
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         ObjectMapper mapper = new ObjectMapper();

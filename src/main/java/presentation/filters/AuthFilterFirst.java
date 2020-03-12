@@ -21,14 +21,12 @@ public class AuthFilterFirst implements Filter {
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpSession session = request.getSession();
-        synchronized (session) {
-            if (
-                    (request.getRequestURI().contains("/login.html")
-                            || request.getRequestURI().contains("/signup.html"))
-                            && session.getAttribute("mainUser") != null
-            ) {
-                ((HttpServletResponse) resp).sendRedirect(String.format("%s/index.html", request.getContextPath()));
-            }
+        if (
+                (request.getRequestURI().contains("/login.html")
+                        || request.getRequestURI().contains("/signup.html"))
+                        && session.getAttribute("mainUser") != null
+        ) {
+            ((HttpServletResponse) resp).sendRedirect(String.format("%s/index.html", request.getContextPath()));
         }
         filterChain.doFilter(req, resp);
     }

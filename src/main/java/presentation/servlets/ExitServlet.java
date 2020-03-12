@@ -16,9 +16,7 @@ public class ExitServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         synchronized (session) {
-            synchronized (session) {
-                session.invalidate();
-            }
+            session.invalidate();
         }
         resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
     }

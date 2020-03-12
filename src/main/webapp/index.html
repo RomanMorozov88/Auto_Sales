@@ -19,14 +19,8 @@
     <div class="inner_btn_box" id="inner_btn_box"></div>
     <div class="inner_filter_box" id="inner_filter_box">
         <form id="filterForm" class="filterForm">
-            <select class="filterSelect" id="engine_select" name="eng" size="1"></select>
-            <select class="filterSelect" id="carbody_select" name="body" size="1"></select>
-            <select class="filterSelect" id="transmission_select" name="trns" size="1"></select>
-            <select class="filterSelectPeriod" name="period" size="1">
-                <option selected="selected" value="-1">За всё время</option>
-                <option value="1">За сегодня</option>
-                <option value="7">За прошедшую неделю</option>
-            </select>
+            <select class="filterSelect" id="outer_select" name="general_otions" size="1"></select>
+            <select class="filterSelect" id="inner_select" name="apart_otions" size="1"></select>
             <button type="button" class="btn btn-default" onclick="loadAds()">Применить</button>
         </form>
     </div>
@@ -48,7 +42,7 @@
 <script>
     $(setGlobalUser());
     $(loadAds());
-    $(loadParts());
+    $(loadMainParts());
 </script>
 
 </body>
