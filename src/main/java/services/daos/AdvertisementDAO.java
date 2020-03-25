@@ -9,7 +9,6 @@ import models.cars_parts.Transmission;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import services.daos.basic_intefaces.EnlargedPartDAO;
 import services.daos.basic_intefaces.PartDAO;
 
 import java.time.LocalDateTime;
@@ -19,7 +18,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class AdvertisementDAO
-        implements EnlargedPartDAO<Advertisement, Integer>, PartDAO<Advertisement, Integer> {
+        implements PartDAO<Advertisement, Integer> {
 
     /**
      * Добавляем в БД новую заявку,

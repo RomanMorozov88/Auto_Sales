@@ -4,7 +4,6 @@ import models.Owner;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import services.daos.basic_intefaces.EnlargedPartDAO;
 import services.daos.basic_intefaces.PartDAO;
 
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class OwnerDAO
-        implements EnlargedPartDAO<Owner, String>, PartDAO<Owner, String> {
+        implements PartDAO<Owner, String> {
 
     @Override
     public Consumer<Session> add(Owner value) {

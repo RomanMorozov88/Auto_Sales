@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import services.daos.AdvertisementDAO;
-import services.daos.CarDAO;
 import services.daos.OwnerDAO;
 import services.daos.RoleDAO;
 import services.daos.car_parts_dao.CarBodyDAO;
@@ -34,7 +33,6 @@ public class StoreDB {
     private final EngineDAO engineDAO = new EngineDAO();
     private final CarBodyDAO carBodyDAO = new CarBodyDAO();
     private final TransmissionDAO transmissionDAO = new TransmissionDAO();
-    private final CarDAO carDAO = new CarDAO();
 
     private StoreDB() {
     }
@@ -65,10 +63,6 @@ public class StoreDB {
 
     public TransmissionDAO getTransmissionDAO() {
         return transmissionDAO;
-    }
-
-    public CarDAO getCarDAO() {
-        return carDAO;
     }
 
     /**

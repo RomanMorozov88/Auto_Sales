@@ -1,0 +1,44 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.HSQLDialect
+        </property>
+
+        <property name="connection.driver_class">
+            org.hsqldb.jdbcDriver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:hsqldb:mem:clinic;sql.enforce_size=false
+        </property>
+
+        <property name="hibernate.connection.username">
+            sa
+        </property>
+
+        <property name="hibernate.connection.password">
+        </property>
+
+        <property name="hibernate.hbm2ddl.auto">
+            create
+        </property>
+
+        <property name="show_sql">
+            true
+        </property>
+
+        <!-- List of XML mapping files -->
+        <mapping resource="models/Role.hbm.xml"/>
+        <mapping resource="models/Car.hbm.xml"/>
+        <mapping resource="models/Owner.hbm.xml"/>
+        <mapping resource="models/Advertisement.hbm.xml"/>
+        <mapping resource="models/cars_parts/Engine.hbm.xml"/>
+        <mapping resource="models/cars_parts/CarBody.hbm.xml"/>
+        <mapping resource="models/cars_parts/Transmission.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
