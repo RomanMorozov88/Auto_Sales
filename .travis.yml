@@ -10,7 +10,7 @@ services:
 - postgresql
 
 before_install:
-- psql -c 'create database tracker;' -U postgres
+- psql -c 'create database auto_sales_db;' -U postgres
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import models.Advertisement;
 import models.Owner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.CarGetter;
 import services.StoreDB;
 
@@ -21,6 +23,8 @@ import java.util.List;
  * В зависимости от входящего значения flag.
  */
 public class AdsServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(AdsServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
     private final CarGetter carGetter = new CarGetter();

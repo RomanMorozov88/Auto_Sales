@@ -1,6 +1,8 @@
 package presentation.servlets;
 
 import models.Owner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.StoreDB;
 
 import javax.servlet.ServletException;
@@ -14,6 +16,8 @@ import java.io.IOException;
  * Вход пользователя.
  */
 public class SignInServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SignInServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
 

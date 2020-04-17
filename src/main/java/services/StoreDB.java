@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.daos.AdvertisementDAO;
 import services.daos.OwnerDAO;
 import services.daos.RoleDAO;
@@ -21,6 +23,8 @@ import java.util.function.Function;
  * *object.sessionFunc(store.getAdvertisementDAO().getParts())* )
  */
 public class StoreDB {
+
+    private static final Logger LOG = LoggerFactory.getLogger(StoreDB.class.getName());
 
     private final static StoreDB INSTANCE = new StoreDB();
     private final static SessionFactory FACTORY = new Configuration()

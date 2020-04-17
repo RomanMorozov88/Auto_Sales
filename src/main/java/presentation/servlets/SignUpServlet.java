@@ -3,6 +3,8 @@ package presentation.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.Owner;
 import models.Role;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.StoreDB;
 
 import javax.servlet.http.HttpServlet;
@@ -17,6 +19,8 @@ import java.util.List;
  * Регистрация нового пользователя.
  */
 public class SignUpServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SignUpServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
 

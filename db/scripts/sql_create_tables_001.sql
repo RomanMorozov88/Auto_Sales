@@ -1,4 +1,4 @@
-create database Auto_Sales_db;
+-- DataBase name: auto_sales_db
 
 create table engine (
 	name_engine varchar(50) primary key

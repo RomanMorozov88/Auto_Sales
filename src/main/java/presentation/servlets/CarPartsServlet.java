@@ -5,6 +5,8 @@ import models.cars_parts.CarBody;
 import models.cars_parts.Engine;
 import models.cars_parts.GeneralPart;
 import models.cars_parts.Transmission;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.StoreDB;
 
 import javax.servlet.ServletException;
@@ -16,6 +18,8 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class CarPartsServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CarPartsServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
 

@@ -18,20 +18,34 @@ function loadRoles() {
     })
 }
 
-//Отправляем логин\пароль для входа.
+//Отправляем логин/пароль для входа.
 function addUser() {
     if (validate()) {
-        var dataString = $('#signUpForm').serialize();
-        $.ajax({
-            url: './sUp',
-            method: 'post',
-            data: dataString,
-            complete: function () {
-                setGlobalUser();
-                window.location.reload();
-            }
-        });
+        var newPassword = $('#password').val();
+        if (passwordValidate(newPassword)) {
+            var dataString = $('#signUpForm').serialize();
+            $.ajax({
+                url: './sUp',
+                method: 'post',
+                data: dataString,
+                complete: function () {
+                    setGlobalUser();
+                    window.location.reload();
+                }
+            });
+        } else {
+            alert("Пароль должен состоять из цифр.");
+        }
     } else {
         alert("Заполните все поля.");
     }
+}
+
+//Проверка введённого пароля- число или нет.
+function passwordValidate(password) {
+    var result = true;
+    if (isNaN(password)) {
+        result = false;
+    }
+    return result;
 }

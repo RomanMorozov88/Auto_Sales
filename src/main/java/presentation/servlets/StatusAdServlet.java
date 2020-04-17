@@ -1,6 +1,8 @@
 package presentation.servlets;
 
 import models.Advertisement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.StoreDB;
 
 import javax.servlet.ServletException;
@@ -13,6 +15,8 @@ import java.io.IOException;
  * Меняет статус объявления.
  */
 public class StatusAdServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(StatusAdServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
 

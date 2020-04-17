@@ -10,6 +10,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.CarGetter;
 import services.Config;
 import services.StoreDB;
@@ -31,6 +33,8 @@ import java.util.List;
  * И, при необходимости, новый связанные с ним Car.
  */
 public class CreateAdServlet extends HttpServlet {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CreateAdServlet.class.getName());
 
     private final StoreDB store = StoreDB.getInstance();
     private final CarGetter carGetter = new CarGetter();
